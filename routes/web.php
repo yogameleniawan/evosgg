@@ -33,12 +33,12 @@ Auth::routes();
 Route::middleware(['auth'])->group(function () {
     Route::prefix('admin')->group(function () {
         Route::resources([
-            'article', ArticleController::class,
-            'banner', BannerController::class,
-            'game', GameController::class,
-            'match', MatchDetailController::class,
-            'partner', PartnerController::class,
-            'squad', SquadController::class,
+            'article' => ArticleController::class,
+            'banner' => BannerController::class,
+            'game' => GameController::class,
+            'match' => MatchDetailController::class,
+            'partner' => PartnerController::class,
+            'squad' => SquadController::class,
         ]);
     });
 });

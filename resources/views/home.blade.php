@@ -51,7 +51,7 @@
     <nav class="main-nav">
         <div class="container">
             <a href="#">
-                <img src="{{ url('assets/images//pages/Oon92liTCVWOj7IUe5LFjSUiiD2UpDaHAma8bPUa.png') }}" alt="" class="main-logo">
+                <img src="{{ url('assets/images/pages/Oon92liTCVWOj7IUe5LFjSUiiD2UpDaHAma8bPUa.png') }}" alt="" class="main-logo">
             </a>
             <ul class="right-menu">
                 <li>
@@ -170,7 +170,7 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="banner-content"
-                            style="background-image: url('assets/images//banners/GFA29GFApQzLl9onMJ4RxgK475XBU4stxz0RekQ5.jpg')">
+                            style="background-image: url('assets/images/banners/GFA29GFApQzLl9onMJ4RxgK475XBU4stxz0RekQ5.jpg')">
                             <div class="inner-banner">
                                 <h4><br></h4>
                                 <h3>ALL NEW&nbsp;EVOS FAMS CUP</h3>
@@ -995,7 +995,7 @@
                             <li>
                                 <p>#1</p>
                                 <a data-url="news/this-is-a-gameplay-leak-from-joy-the-new-hero-in-mobile-legends-en.html"
-                                    data-background="{{ url('assets/images//articles/yguUmkDqFrRhUI27Sd8gOLEmUdlcMggwfMzZYfZZ.png') }}">This
+                                    data-background="{{ url('assets/images/articles/yguUmkDqFrRhUI27Sd8gOLEmUdlcMggwfMzZYfZZ.png') }}">This
                                     is a Gameplay Leak from Joy, the New Hero in Mobile Legends</a>
                             </li>
                             <li>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Page | Yoedu Study Network</title>
+    <title>ADMIN PAGE</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -20,44 +20,18 @@
     <link rel="shortcut icon" href="{{ url('mazer/assets/images/favicon.svg') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ url('mazer/assets/vendors/simple-datatables/style.css') }}">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
-    <link rel="stylesheet" href="{{ url('catalog/css/custom.css') }}">
-    <link rel="stylesheet" href="{{ url('css/ppdb.css') }}">
     <link rel="stylesheet" href="{{ url('mazer/assets/vendors/summernote/summernote-lite.min.css') }}">
     <link rel="stylesheet" href="{{ url('mazer/assets/vendors/toastify/toastify.css') }}">
-    <link rel="stylesheet" href="{{ url('catalog/css/custom.css') }}">
-    <link rel="stylesheet" href="{{ url('catalog/css/mobile-view.css') }}">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.js">
-    <link rel="shortcut icon" href="{{ url('admin/images/favicon.png') }}" type="image/x-icon" />
 
+    <link rel="shortcut icon" href="{{ url('assets/images//pages/8kBs34K2WnfZsus5D8dYW8AulJRxsAMDv6bhVXFe.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ url('assets/images//pages/8kBs34K2WnfZsus5D8dYW8AulJRxsAMDv6bhVXFe.ico') }}" type="image/x-icon">
 
     @yield('css')
     <style>
-        .page-item.active .page-link {
-            z-index: 3;
-            color: #fff;
-            background-color: #ea342a;
-            border-color: #ea342a;
-        }
 
-        .btn-danger {
-            background-color: #E5352B;
-            border-color: #E5352B;
-        }
-
-        element.style {}
-
-        *,
-        :after,
-        :before {
-            box-sizing: border-box;
-        }
-
-        .sidebar-wrapper .menu .submenu .submenu-item.active>a {
-            color: #ea342a;
-            font-weight: 700;
-        }
 
     </style>
 </head>
@@ -69,7 +43,7 @@
                 <div class="sidebar-header">
                     <div class="d-flex justify-content-between">
                         <div>
-                            <a href=""><img src="{{ url('mazer/assets/images/logo/logo.png') }}" alt="Logo"></a>
+                            <a href=""><img src="{{ url('assets/images//pages/Oon92liTCVWOj7IUe5LFjSUiiD2UpDaHAma8bPUa.png') }}" alt="Logo"></a>
                         </div>
                         <div class="toggler">
                             <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -78,10 +52,10 @@
                 </div>
                 <div class="sidebar-menu">
                     <ul class="menu">
-                        <li class="sidebar-title">{{ __('admin_application_data.management_data') }}</li>
+                        <li class="sidebar-title">Data Management</li>
 
                         <li class="sidebar-item {{ Route::is('article.*') ? 'active' : '' }}">
-                            <a href="{{ route('admin-dashboard') }}" class='sidebar-link'>
+                            <a href="{{ route('article.index') }}" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Article</span>
                             </a>
@@ -89,7 +63,7 @@
 
                         <li
                             class="sidebar-item {{ Route::is('banner.*') ? 'active' : '' }}">
-                            <a href="{{ route('applications.index') }}" class='sidebar-link'>
+                            <a href="{{ route('banner.index') }}" class='sidebar-link'>
                                 <i class="bi bi-book-half"></i>
                                 <span>Banner</span>
                             </a>
@@ -97,7 +71,7 @@
 
                         <li
                             class="sidebar-item {{ Route::is('game.*') ? 'active' : '' }}">
-                            <a href="{{ route('programs.index') }}" class='sidebar-link'>
+                            <a href="{{ route('game.index') }}" class='sidebar-link'>
                                 <i class="bi bi-collection-fill"></i>
                                 <span>Game</span>
                             </a>
@@ -105,7 +79,7 @@
 
                         <li
                             class="sidebar-item {{ Route::is('match.*') ? 'active' : '' }}">
-                            <a href="{{ route('universities.index') }}" class='sidebar-link'>
+                            <a href="{{ route('match.index') }}" class='sidebar-link'>
                                 <i class="bi bi-building"></i>
                                 <span>Match</span>
                             </a>
@@ -113,15 +87,15 @@
 
                         <li
                             class="sidebar-item {{ Route::is('partner.*') ? 'active' : '' }}">
-                            <a href="{{ route('users.index') }}" class='sidebar-link'>
+                            <a href="{{ route('partner.index') }}" class='sidebar-link'>
                                 <i class="bi bi-person-badge-fill"></i>
                                 <span>Partner</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item  {{ Route::is('squad.*') ? 'active' : '' }}">
-                            <a href="{{ route('messages.index') }}" class='sidebar-link'>
-                                <i class="bi bi-envelope-fill"></i>
+                            <a href="{{ route('squad.index') }}" class='sidebar-link'>
+                                <i class="bi bi-person-fill"></i>
                                 <span>Squad</span>
                             </a>
                         </li>
@@ -151,12 +125,9 @@
                                 <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                     <div class="user-menu d-flex">
                                         <div class="user-name text-end me-3">
-                                            <h6 class="mb-0 text-gray-600 text-capitalize">
-                                                {{ Auth::user()->full_name != null ? Auth::user()->full_name : 'Full Name' }}
+                                            <h6 class="mb-0 text-gray-600">
+                                                {{ Auth::user()->email != null ? Auth::user()->email : 'Email' }}
                                             </h6>
-                                            <p class="mb-0 text-sm text-gray-600">
-                                                {{ Auth::user()->role != null ? Auth::user()->role : 'Role' }}
-                                            </p>
                                         </div>
                                         <div class="user-img d-flex align-items-center">
                                             <div class="avatar avatar-md">
@@ -169,12 +140,9 @@
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                                     <li>
                                         <h6 class="dropdown-header">Hello,
-                                            {{ Auth::user()->username != null ? Auth::user()->username : 'username' }}!
+                                            {{ Auth::user()->email != null ? Auth::user()->email : 'email' }}!
                                         </h6>
                                     </li>
-                                    <li><a class="dropdown-item" href="{{ route('admin-profile.index') }}"><i
-                                                class="icon-mid bi bi-person me-2"></i>
-                                            Profile</a></li>
                                     <hr class="dropdown-divider">
                                     </li>
                                     <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -204,8 +172,6 @@
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard /
-                                        </a></li>&nbsp;
                                     @yield('breadcumb')
                                 </ol>
                             </nav>
