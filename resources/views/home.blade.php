@@ -278,7 +278,7 @@
                     </div>
                     <div class="swiper-slide">
                         <div class="banner-content"
-                            style="background-image: url('{{ url('assets/images//banners/yshsSIj7CBO53z0IGXHnLsRpglaKwqt7p12PcY6Y.jpg') }}')">
+                            style="background-image: url('assets/images//banners/yshsSIj7CBO53z0IGXHnLsRpglaKwqt7p12PcY6Y.jpg')">
                             <div class="inner-banner">
                                 <h4><br></h4>
                                 <h3>MLBB DIAMONDS NOW AVAILABLE!</h3>
@@ -854,7 +854,7 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide pb-5">
                         <div class="teams-card"
-                            style="background-image: url('{{ url('assets/images//teams/c6zgQhsJiYl1OOVI55G27XgJRT6f41pDRfkCWmPA.jpg') }}')">
+                            style="background-image: url('assets/images//teams/c6zgQhsJiYl1OOVI55G27XgJRT6f41pDRfkCWmPA.jpg')">
                             <div class="description">
                                 <div class="name-container">
                                     <a href="#">
@@ -871,7 +871,7 @@
                     </div>
                     <div class="swiper-slide pb-5">
                         <div class="teams-card"
-                            style="background-image: url('{{ url('assets/images//teams/5UBqcx1nGn1J1u2H5gdu1T6cvKwkLc2NEa0DdrDg.jpg') }}')">
+                            style="background-image: url('assets/images//teams/5UBqcx1nGn1J1u2H5gdu1T6cvKwkLc2NEa0DdrDg.jpg')">
                             <div class="description">
                                 <div class="name-container">
                                     <a href="#">
@@ -888,7 +888,7 @@
                     </div>
                     <div class="swiper-slide pb-5">
                         <div class="teams-card"
-                            style="background-image: url('{{ url('assets/images//teams/Ow5fRKuQBf2zznbgkwHIK0zOudal0ciT3tcISdkh.jpg') }}')">
+                            style="background-image: url('assets/images//teams/Ow5fRKuQBf2zznbgkwHIK0zOudal0ciT3tcISdkh.jpg')">
                             <div class="description">
                                 <div class="name-container">
                                     <a href="#">
@@ -905,7 +905,7 @@
                     </div>
                     <div class="swiper-slide pb-5">
                         <div class="teams-card"
-                            style="background-image: url('{{ url('assets/images//teams/v3m2BpwT1KxesVSsT6FukDUyQsCXNojiWP0XVNk7.jpg') }}')">
+                            style="background-image: url('assets/images//teams/v3m2BpwT1KxesVSsT6FukDUyQsCXNojiWP0XVNk7.jpg')">
                             <div class="description">
                                 <div class="name-container">
                                     <a href="#">
@@ -922,7 +922,7 @@
                     </div>
                     <div class="swiper-slide pb-5">
                         <div class="teams-card"
-                            style="background-image: url('{{ url('assets/images//teams/8YX5fSohmo8RM5of5AOPrr3vCOllWtYQUIgMlugu.jpg') }}')">
+                            style="background-image: url('assets/images//teams/8YX5fSohmo8RM5of5AOPrr3vCOllWtYQUIgMlugu.jpg')">
                             <div class="description">
                                 <div class="name-container">
                                     <a href="#">
@@ -939,7 +939,7 @@
                     </div>
                     <div class="swiper-slide pb-5">
                         <div class="teams-card"
-                            style="background-image: url('{{ url('assets/images//teams/ZHu3OFua8Vj4cSOCOWJv2UOH33F6OaWbsjYYYJs0.jpg') }}')">
+                            style="background-image: url('assets/images//teams/ZHu3OFua8Vj4cSOCOWJv2UOH33F6OaWbsjYYYJs0.jpg')">
                             <div class="description">
                                 <div class="name-container">
                                     <a href="#">
@@ -956,7 +956,7 @@
                     </div>
                     <div class="swiper-slide pb-5">
                         <div class="teams-card"
-                            style="background-image: url('{{ url('assets/images//teams/s8DlnSgGnabJsxHPAm9hWgkPBBK9rkdvCC6EuQCc.jpg') }}')">
+                            style="background-image: url('assets/images//teams/s8DlnSgGnabJsxHPAm9hWgkPBBK9rkdvCC6EuQCc.jpg')">
                             <div class="description">
                                 <div class="name-container">
                                     <a href="#">
@@ -973,7 +973,7 @@
                     </div>
                     <div class="swiper-slide pb-5">
                         <div class="teams-card"
-                            style="background-image: url('{{ url('assets/images//teams/IDqGiuTfPoqMDZ06PPRyZ2Lr1Tz8uC83RjtXx68T.jpg') }}')">
+                            style="background-image: url('assets/images//teams/IDqGiuTfPoqMDZ06PPRyZ2Lr1Tz8uC83RjtXx68T.jpg')">
                             <div class="description">
                                 <div class="name-container">
                                     <a href="#">
@@ -990,7 +990,7 @@
                     </div>
                     <div class="swiper-slide pb-5">
                         <div class="teams-card"
-                            style="background-image: url('{{ url('assets/images//teams/VxJGexkuIUchEfhRAUd0SrAltEFve5YQvwILIUew.jpg') }}')">
+                            style="background-image: url('assets/images//teams/VxJGexkuIUchEfhRAUd0SrAltEFve5YQvwILIUew.jpg')">
                             <div class="description">
                                 <div class="name-container">
                                     <a href="#">
@@ -1007,7 +1007,7 @@
                     </div>
                     <div class="swiper-slide pb-5">
                         <div class="teams-card"
-                            style="background-image: url('{{ url('assets/images//teams/4j9rE3tUUGEG5Y9hVz8LpAn4yNasgEDLLnhVG4ZJ.jpg') }}')">
+                            style="background-image: url('assets/images//teams/4j9rE3tUUGEG5Y9hVz8LpAn4yNasgEDLLnhVG4ZJ.jpg')">
                             <div class="description">
                                 <div class="name-container">
                                     <a href="#">
@@ -1024,7 +1024,7 @@
                     </div>
                     <div class="swiper-slide pb-5">
                         <div class="teams-card"
-                            style="background-image: url('{{ url('assets/images//teams/w4dBGUJVplEc76Cb7dSuhXuRQMIhEcxFRx71ZbHh.jpg') }}')">
+                            style="background-image: url('assets/images//teams/w4dBGUJVplEc76Cb7dSuhXuRQMIhEcxFRx71ZbHh.jpg')">
                             <div class="description">
                                 <div class="name-container">
                                     <a href="#">
@@ -1046,7 +1046,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 left-side"
-                        style="background-image: url('{{ url('assets/images/articles/yguUmkDqFrRhUI27Sd8gOLEmUdlcMggwfMzZYfZZ.png') }}')">
+                        style="background-image: url('assets/images/articles/yguUmkDqFrRhUI27Sd8gOLEmUdlcMggwfMzZYfZZ.png')">
                         <div class="description w-75">
                             <div class="category">
                                 <p>NEWS</p>
@@ -1273,7 +1273,7 @@
             </div>
         </section>
         <section id="promo" class=""
-            style="background-image: url('{{ url('assets/images//pages/CWheLqKhJEUxB6VKAKxPBvtgIrcd5Xlq8ptbgnZC.png') }}')">
+            style="background-image: url('assets/images//pages/CWheLqKhJEUxB6VKAKxPBvtgIrcd5Xlq8ptbgnZC.png')">
             <div class="container">
                 <div class="row pt-5">
                     <div class="col-lg-5 ml-auto">
