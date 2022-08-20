@@ -402,7 +402,7 @@
         </section>
         <section id="past-results" class="my-5 pt-5">
             <div class="row">
-                <div class="col-lg-2 left-side" style="z-index: 30">
+                <div class="col-lg-2 left-side" style="z-index: 2">
                     <div class="global-title">
                         <p><strong>PAST</strong></p>
                         <p>RESULTS</p>
