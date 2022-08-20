@@ -73,6 +73,11 @@
                 width: 100%;
                 height: 100%;
             }
+
+            .swiper-partner {
+                width: 100%;
+                height: 100%;
+            }
         }
 
         .swiper-teams {
@@ -229,7 +234,7 @@
 
     <section id="home">
         <section id="main-banner">
-            <div class="swiper-containers" id="swiper-main">
+            <div class="swiper-container" id="swiper-main">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="banner-content"
@@ -292,7 +297,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="swiper-pagination"></div>
                 <div class="swiper-button-next text-white"></div>
                 <div class="swiper-button-prev text-white"></div>
             </div>
@@ -309,7 +313,7 @@
                         </div>
                         <a href="#" class="btn btn-light-blue rounded-0">EXPLORE</a>
                     </div>
-                    <div class="col-lg-10">
+                    <div class="col-lg-10" style="overflow: hidden">
                         <div class="swiper-partner" id="swiper-partners">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide d-flex align-items-center px-5">
@@ -783,7 +787,7 @@
         </section>
         <div class="container mb-5" id="see-all-match-cta">
             <div class="text-right">
-                <a href="matches.html" class="btn btn-light-blue rounded-0 py-2">SEE ALL MATCHES</a>
+                <a href="#" class="btn btn-light-blue rounded-0 py-2">SEE ALL MATCHES</a>
             </div>
         </div>
         <section id="squads" class="my-5">
@@ -1413,6 +1417,25 @@
     <script src="{{url('assets/js/app.js')}}">
     </script>
     <script>
+        var swiperTeams = new Swiper('.swiper-container', {
+          effect: 'coverflow',
+          grabCursor: true,
+          centeredSlides: true,
+          slidesPerView: 'auto',
+          coverflowEffect: {
+            rotate: 0,
+            stretch: 0,
+            depth: 10,
+            modifier: 0,
+            slideShadows: true,
+          },
+          navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+          },
+          loop: true
+        });
+
         var swiperTeams = new Swiper('.swiper-teams', {
           effect: 'coverflow',
           grabCursor: true,
@@ -1435,10 +1458,32 @@
           loop: true
         });
 
+        var swiperPartner = new Swiper('.swiper-partner', {
+          effect: 'coverflow',
+          grabCursor: true,
+          centeredSlides: true,
+          slidesPerView: 'auto',
+          coverflowEffect: {
+            rotate: 0,
+            stretch: 0,
+            depth: 10,
+            modifier: 0,
+            slideShadows: true,
+          },
+          loop: true
+        });
+
         var swiperResults = new Swiper('.swiper-results', {
           slidesPerView: 'auto',
           centeredSlides: false,
           spaceBetween: 20,
           navigation: {
                 nextEl: '.navigation-right',
-                pr
+                prevEl: '.navigation-left',
+          },
+        });
+
+      </script>
+</body>
+
+</html>
