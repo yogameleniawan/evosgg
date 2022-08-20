@@ -85,10 +85,20 @@
             height: 100%;
         }
 
+        .swiper-squads {
+            width: 20%;
+            height: 100%;
+        }
+
 
         @media only screen and (max-width: 768px) {
             .swiper-teams {
                 width: 56vw;
+                height: 100%;
+            }
+
+            .swiper-squads {
+                width: 30%;
                 height: 100%;
             }
         }
@@ -368,10 +378,10 @@
                     </div>
                     <div class="swiper-navigation" id="swiper-navigation-upcoming">
                         <div class="btn-group">
-                            <button class="btn btn-light-blue rounded-0 navigation-left disabled">
+                            <button class="btn btn-light-blue rounded-0 nav-left disabled">
                                 <i class="fas fa-chevron-left"></i>
                             </button>
-                            <button class="btn btn-light-blue rounded-0 navigation-right">
+                            <button class="btn btn-light-blue rounded-0 nav-right">
                                 <i class="fas fa-chevron-right"></i>
                             </button>
                         </div>
@@ -800,36 +810,36 @@
                         </div>
                         <a href="#" class="btn btn-light-blue rounded-0">EXPLORE</a>
                     </div>
-                    <div class="col-lg-10 h-100 right-side">
-                        <div class="swiper-container" id="swiper-squads">
+                    <div class="col-lg-10 h-100 right-side" style="overflow: hidden">
+                        <div class="swiper-squads" id="swiper-squads">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide d-flex align-items-end pb-4 justify-content-center">
                                     <a href="#">
-                                        <img src="{{ url('assets/images//game-logos/4XOM8rrCvvtMh2VDmeHiMzIUW6qw2nuELkFrYuAP.png') }}"
+                                        <img src="{{ url('assets/images/game-logos/4XOM8rrCvvtMh2VDmeHiMzIUW6qw2nuELkFrYuAP.png') }}"
                                             alt="Mobile Legends" class="img-fluid">
                                     </a>
                                 </div>
                                 <div class="swiper-slide d-flex align-items-end pb-4 justify-content-center">
                                     <a href="#">
-                                        <img src="{{ url('assets/images//game-logos/ppYmz0waG9Xyvk1WKfjiggF1J3cuikt2zDFt6Udp.png') }}"
+                                        <img src="{{ url('assets/images/game-logos/ppYmz0waG9Xyvk1WKfjiggF1J3cuikt2zDFt6Udp.png') }}"
                                             alt="PUBGM" class="img-fluid">
                                     </a>
                                 </div>
                                 <div class="swiper-slide d-flex align-items-end pb-4 justify-content-center">
                                     <a href="#">
-                                        <img src="{{ url('assets/images//game-logos/IhX8oN2oLPXs9P8kNh7ZcwukY0msoCE9A7Wm1gjy.png') }}"
+                                        <img src="{{ url('assets/images/game-logos/IhX8oN2oLPXs9P8kNh7ZcwukY0msoCE9A7Wm1gjy.png') }}"
                                             alt="Free Fire" class="img-fluid">
                                     </a>
                                 </div>
                                 <div class="swiper-slide d-flex align-items-end pb-4 justify-content-center">
                                     <a href="#">
-                                        <img src="{{ url('assets/images//game-logos/Y4P38nD4lkBWVAo4pVSRjHtW1Mf14UckLN84REz5.png') }}"
+                                        <img src="{{ url('assets/images/game-logos/Y4P38nD4lkBWVAo4pVSRjHtW1Mf14UckLN84REz5.png') }}"
                                             alt="Realm of Valor" class="img-fluid">
                                     </a>
                                 </div>
                                 <div class="swiper-slide d-flex align-items-end pb-4 justify-content-center">
                                     <a href="#">
-                                        <img src="{{ url('assets/images//game-logos/5wq2rXODjZL4y5OLsyQpWdt9x3yhvOIgQaigmFxF.png') }}"
+                                        <img src="{{ url('assets/images/game-logos/5wq2rXODjZL4y5OLsyQpWdt9x3yhvOIgQaigmFxF.png') }}"
                                             alt="League Of Legends: Wild Rift" class="img-fluid">
                                     </a>
                                 </div>
@@ -1036,7 +1046,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 left-side"
-                        style="background-image: url('{{ url('assets/images//articles/yguUmkDqFrRhUI27Sd8gOLEmUdlcMggwfMzZYfZZ.png') }}')">
+                        style="background-image: url('{{ url('assets/images/articles/yguUmkDqFrRhUI27Sd8gOLEmUdlcMggwfMzZYfZZ.png') }}')">
                         <div class="description w-75">
                             <div class="category">
                                 <p>NEWS</p>
@@ -1060,7 +1070,7 @@
                             <p><strong>LATEST</strong> UPDATE</p>
                         </div>
                         <ul>
-                            <li class="active">
+                            <li>
                                 <p>#1</p>
                                 <a data-url="news/this-is-a-gameplay-leak-from-joy-the-new-hero-in-mobile-legends-en.html"
                                     data-background="{{ url('assets/images//articles/yguUmkDqFrRhUI27Sd8gOLEmUdlcMggwfMzZYfZZ.png') }}">This
@@ -1137,7 +1147,7 @@
                     </div>
                 </div>
             </div>
-            <div class="swiper-container bottom-part" id="swiper-latest-update-mobile">
+            <div class="swiper-news bottom-part" id="swiper-latest-update-mobile">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="row" data-title="This is a Gameplay Leak from Joy, the New Hero in Mobile Legends"
@@ -1248,7 +1258,7 @@
                         <div class="inactive-container rounded">
                             <img src="{{ url('assets/images//pages/NnZopKjxuveclzWk2Rdes0Z1HZIba583hXShDkjB.png') }}" alt=""
                                 class="inactive-card">
-                            <div class="shadow-overlay rounded"></div>
+                            {{-- <div class="shadow-overlay rounded"></div> --}}
                         </div>
                     </div>
                     <div class="col-lg-7 right-part">
@@ -1458,6 +1468,43 @@
           loop: true
         });
 
+        var swiperNews = new Swiper('.swiper-news', {
+          effect: 'coverflow',
+          grabCursor: true,
+          centeredSlides: true,
+          slidesPerView: 'auto',
+          coverflowEffect: {
+            rotate: 0,
+            stretch: 0,
+            depth: 10,
+            modifier: 0,
+            slideShadows: true,
+          },
+          pagination: {
+            el: '.swiper-pagination',
+          },
+          navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+          },
+          loop: true
+        });
+
+        var swiperSquads = new Swiper('.swiper-squads', {
+          effect: 'coverflow',
+          grabCursor: true,
+          centeredSlides: true,
+          slidesPerView: 'auto',
+          coverflowEffect: {
+            rotate: 0,
+            stretch: 0,
+            depth: 10,
+            modifier: 0,
+            slideShadows: true,
+          },
+          loop: true
+        });
+
         var swiperPartner = new Swiper('.swiper-partner', {
           effect: 'coverflow',
           grabCursor: true,
@@ -1483,6 +1530,14 @@
           },
         });
 
+      </script>
+
+      <script>
+        function getNews(element)
+        {
+            $(element).addClass('active')
+            // $(this).addClass('active')
+        }
       </script>
 </body>
 
