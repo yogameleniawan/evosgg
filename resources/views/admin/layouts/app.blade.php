@@ -27,18 +27,13 @@
     <link rel="stylesheet" href="{{ url('catalog/css/custom.css') }}">
     <link rel="stylesheet" href="{{ url('catalog/css/mobile-view.css') }}">
 
-    {{-- <link rel="stylesheet" type="text/css"  href="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"> --}}
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css">
-    {{-- <link rel="stylesheet" type="text/css"  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"> --}}
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.js">
     <link rel="shortcut icon" href="{{ url('admin/images/favicon.png') }}" type="image/x-icon" />
 
 
     @yield('css')
     <style>
-        /* th, td {
-    white-space: nowrap;
-} */
         .page-item.active .page-link {
             z-index: 3;
             color: #fff;
@@ -85,49 +80,49 @@
                     <ul class="menu">
                         <li class="sidebar-title">{{ __('admin_application_data.management_data') }}</li>
 
-                        <li class="sidebar-item {{ Route::is('admin-dashboard') ? 'active' : '' }}">
+                        <li class="sidebar-item {{ Route::is('article.*') ? 'active' : '' }}">
                             <a href="{{ route('admin-dashboard') }}" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
-                                <span>Dashboard</span>
+                                <span>Article</span>
                             </a>
                         </li>
 
                         <li
-                            class="sidebar-item {{ Route::is('applications.index') || Route::is('applications.create') || Route::is('applications.edit')? 'active': '' }}">
+                            class="sidebar-item {{ Route::is('banner.*') ? 'active' : '' }}">
                             <a href="{{ route('applications.index') }}" class='sidebar-link'>
                                 <i class="bi bi-book-half"></i>
-                                <span>{{ __('admin_application_data.application.title_breadcumb') }}</span>
+                                <span>Banner</span>
                             </a>
                         </li>
 
                         <li
-                            class="sidebar-item {{ Route::is('programs.index') || Route::is('programs.create') || Route::is('programs.edit') ? 'active' : '' }}">
+                            class="sidebar-item {{ Route::is('game.*') ? 'active' : '' }}">
                             <a href="{{ route('programs.index') }}" class='sidebar-link'>
                                 <i class="bi bi-collection-fill"></i>
-                                <span>{{ __('admin_programs.title_breadcumb') }}</span>
+                                <span>Game</span>
                             </a>
                         </li>
 
                         <li
-                            class="sidebar-item {{ Route::is('universities.index') || Route::is('universities.create') || Route::is('universities.edit')? 'active': '' }}">
+                            class="sidebar-item {{ Route::is('match.*') ? 'active' : '' }}">
                             <a href="{{ route('universities.index') }}" class='sidebar-link'>
                                 <i class="bi bi-building"></i>
-                                <span>{{ __('admin_university.title_breadcumb') }}</span>
+                                <span>Match</span>
                             </a>
                         </li>
 
                         <li
-                            class="sidebar-item {{ Route::is('users.index') || Route::is('users.create') || Route::is('users.edit') ? 'active' : '' }}">
+                            class="sidebar-item {{ Route::is('partner.*') ? 'active' : '' }}">
                             <a href="{{ route('users.index') }}" class='sidebar-link'>
                                 <i class="bi bi-person-badge-fill"></i>
-                                <span>{{ __('admin_users.title_breadcumb') }}</span>
+                                <span>Partner</span>
                             </a>
                         </li>
 
-                        <li class="sidebar-item {{ Route::is('messages.index') ? 'active' : '' }}">
+                        <li class="sidebar-item  {{ Route::is('squad.*') ? 'active' : '' }}">
                             <a href="{{ route('messages.index') }}" class='sidebar-link'>
                                 <i class="bi bi-envelope-fill"></i>
-                                <span>{{ __('admin_email.email_messages') }}</span>
+                                <span>Squad</span>
                             </a>
                         </li>
                     </ul>
@@ -150,46 +145,7 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                                @php
-                                    $urlfull = url()->full();
-                                    $url = '';
-                                    if (str_contains($urlfull, '?') && !str_contains($urlfull, '?l=') && !str_contains($urlfull, '&l=')) {
-                                        $url = $urlfull . '&l=';
-                                    } elseif (str_contains($urlfull, '&l=')) {
-                                        $prefix = '&l=';
-                                        $index = strpos($urlfull, $prefix) + strlen($prefix);
-                                        $result = substr($urlfull, $index);
-                                        $len = strlen($result) * -1;
-                                        $sub = substr($urlfull, 0, $len);
-                                        $url = $sub;
-                                    } elseif (str_contains($urlfull, '?l=')) {
-                                        $prefix = '?l=';
-                                        $index = strpos($urlfull, $prefix) + strlen($prefix);
-                                        $result = substr($urlfull, $index);
-                                        $len = strlen($result) * -1;
-                                        $sub = substr($urlfull, 0, $len);
-                                        $url = $sub;
-                                    } else {
-                                        $url = url()->current() . '?l=';
-                                    }
-                                @endphp
-                                @if (count(config('app.languages')) > 1)
-                                    <li class="nav-item dropdown me-1">
-                                        <a class="nav-link active text-danger dropdown-toggle" href="#"
-                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                            {{ strtoupper(app()->getLocale()) }}
-                                        </a>
-                                        <ul class="dropdown-menu dropdown-menu-end"
-                                            aria-labelledby="dropdownMenuButton">
-                                            @foreach (config('app.languages') as $langLocale => $langName)
-                                                <li><a class="dropdown-item"
-                                                        href="{{ $url . $langLocale }}">{{ strtoupper($langLocale) }}
-                                                        ({{ $langName }})
-                                                    </a></li>
-                                            @endforeach
-                                        </ul>
-                                    </li>
-                                @endif
+
                             </ul>
                             <div class="dropdown">
                                 <a href="#" data-bs-toggle="dropdown" aria-expanded="false">

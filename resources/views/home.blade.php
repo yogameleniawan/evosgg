@@ -31,6 +31,7 @@
     <meta property="twitter:image" content="{{ url('assets/images//pages/Oon92liTCVWOj7IUe5LFjSUiiD2UpDaHAma8bPUa.png') }}">
 
     <link rel="stylesheet" href="{{url('assets/css/app.css')}}">
+    <link rel="stylesheet" href="{{url('assets/css/style.css')}}">
 
     <link rel="shortcut icon" href="{{ url('assets/images//pages/8kBs34K2WnfZsus5D8dYW8AulJRxsAMDv6bhVXFe.ico') }}" type="image/x-icon">
     <link rel="icon" href="{{ url('assets/images//pages/8kBs34K2WnfZsus5D8dYW8AulJRxsAMDv6bhVXFe.ico') }}" type="image/x-icon">
@@ -45,85 +46,6 @@
             .offsetHeight);
 
     </script>
-    <style>
-        footer.main-footer {
-            -webkit-box-shadow: inset 0 -20rem 0 0 #000000 !important;
-            -moz-box-shadow: inset 0 -20rem 0 0 #000000 !important;
-            box-shadow: inset 0 -20rem 0 0 #000000 !important;
-            -webkit-appearance: none !important;
-        }
-
-        .swiper-partner {
-            width: 25%;
-            height: 100%;
-        }
-
-        .swiper-container {
-            width: 100%;
-            height: 100%;
-        }
-
-        .swiper-results {
-            width: 30vw;
-            height: 100%;
-        }
-
-        @media only screen and (max-width: 768px) {
-            .swiper-results {
-                width: 100%;
-                height: 100%;
-            }
-
-            .swiper-partner {
-                width: 100%;
-                height: 100%;
-            }
-        }
-
-        .swiper-teams {
-            width: 20vw;
-            height: 100%;
-        }
-
-        .swiper-squads {
-            width: 20%;
-            height: 100%;
-        }
-
-
-        @media only screen and (max-width: 768px) {
-            .swiper-teams {
-                width: 56vw;
-                height: 100%;
-            }
-
-            .swiper-squads {
-                width: 30%;
-                height: 100%;
-            }
-        }
-
-        .teams-card {
-            margin-right: 3vw;
-        }
-
-        .background-container {
-            content: "";
-            background-image: url('assets/images/backgrounds/background-home.png');
-            background-position: 75% 45vh;
-            background-size: 200% 100%;
-            background-repeat: no-repeat;
-            mix-blend-mode: screen;
-        }
-
-        @media only screen and (max-width: 768px) {
-            .background-container {
-                background-position: center center;
-                background-size: 500% 100%;
-            }
-        }
-
-    </style>
 
     <div class="background-container"></div>
     <nav class="main-nav">

@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\BannerController;
+use App\Http\Controllers\GameController;
+use App\Http\Controllers\MatchDetailController;
+use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\SquadController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +29,16 @@ Route::get('/home', function () {
 })->name('home');
 
 Auth::routes();
+
+Route::middleware(['auth'])->group(function () {
+    Route::prefix('admin')->group(function () {
+        Route::resources([
+            'article', ArticleController::class,
+            'banner', BannerController::class,
+            'game', GameController::class,
+            'match', MatchDetailController::class,
+            'partner', PartnerController::class,
+            'squad', SquadController::class,
+        ]);
+    });
+});
