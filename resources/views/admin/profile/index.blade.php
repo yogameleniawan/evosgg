@@ -21,7 +21,7 @@ Profile
             <label for="email"> Email</label>
             <div class="form-group">
                 <div class="form-line">
-                    <input type="text" name="email" class="form-control" placeholder="Email" autocomplete="off" value="{{Auth::user()->email}}">
+                    <input type="text" id="email" name="email" class="form-control" placeholder="Email" autocomplete="off" value="{{Auth::user()->email}}">
                 </div>
             </div>
 
@@ -72,13 +72,14 @@ Profile
                 },
             },
             success: function(data) {
-                console.log(data)
                 $("#form-data")[0].reset()
                 Toastify({
                     text: 'Profile update successful',
                     backgroundColor: '#435ebe',
                 }).showToast();
                 $('#btn-loader').addClass('d-none')
+                $('#btn-action').removeClass('d-none')
+                $('#email').val(data.data.email)
             }
         });
     }
