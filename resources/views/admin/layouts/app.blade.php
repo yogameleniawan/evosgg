@@ -145,6 +145,11 @@
                                     </li>
                                     <hr class="dropdown-divider">
                                     </li>
+                                    <li><a class="dropdown-item" href="{{ route('profile') }}"><i
+                                        class="icon-mid bi bi-person me-2"></i>
+                                            Profile</a></li>
+                                    <hr class="dropdown-divider">
+                                    </li>
                                     <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();" role="button">
                                             <i class="icon-mid bi bi-box-arrow-left me-2"></i>
@@ -186,7 +191,7 @@
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
-                        <p>2021 &copy; Yo Edu</p>
+                        <p>2022 &copy; Copyright</p>
                     </div>
                 </div>
             </footer>

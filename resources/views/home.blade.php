@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
-
+{{-- SEND PRODUCTION 2022 --}}
 <head>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.2/swiper-bundle.min.js"
         integrity="sha512-V1mUBtsuFY9SNr+ptlCQAlPkhsH0RGLcazvOCFt415od2Bf9/YkdjXxZCdhrP/TVYsPeAWuHa+KYLbjNbeEnWg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -958,5 +957,5 @@
         }
       </script>
 </body>
-
+{{-- SEND PRODUCTION 2022 --}}
 </html>
