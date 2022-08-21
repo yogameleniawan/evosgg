@@ -95,6 +95,7 @@ Match
                         <th>Away Team</th>
                         <th>Away Team Score</th>
                         <th>Date</th>
+                        <th>Time</th>
                         <th>Stage</th>
                         <th></th>
                     </tr>
@@ -155,6 +156,10 @@ Match
                 {
                     data: 'date',
                     name: 'date'
+                },
+                {
+                    data: 'time',
+                    name: 'time'
                 },
                 {
                     data: 'stage',

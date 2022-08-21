@@ -168,18 +168,17 @@
         <section id="main-banner">
             <div class="swiper-container" id="swiper-main">
                 <div class="swiper-wrapper">
+                    @foreach ($banners as $banner)
                     <div class="swiper-slide">
                         <div class="banner-content"
-                            style="background-image: url('assets/images/banners/GFA29GFApQzLl9onMJ4RxgK475XBU4stxz0RekQ5.jpg')">
+                            style="background-image: url('{{$banner->image}}')">
                             <div class="inner-banner">
                                 <h4><br></h4>
-                                <h3>ALL NEW EVOS FAMS CUP</h3>
+                                <h3>{{$banner->title}}</h3>
                                 <p>—</p>
-                                <p>Prove your best skills and champion mentality, make your dreams of becoming a
-                                    professional player come true!</p>
+                                <p>{{$banner->description}}</p>
                                 <p><br></p>
-                                <a href="#" class="btn btn-light-blue rounded-0 px-4 py-2">BROWSE
-                                    TOURNAMENTS</a>
+                                <a href="{{$banner->button_link}}" class="btn btn-light-blue rounded-0 px-4 py-2">{{$banner->button}}</a>
                                 <div class="scroll-down-widget">
                                     <p>scroll down</p>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="30" viewBox="0 0 18 30">
@@ -198,36 +197,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="banner-content"
-                            style="background-image: url('assets/images//banners/yshsSIj7CBO53z0IGXHnLsRpglaKwqt7p12PcY6Y.jpg')">
-                            <div class="inner-banner">
-                                <h4><br></h4>
-                                <h3>MLBB DIAMONDS NOW AVAILABLE!</h3>
-                                <p>—</p>
-                                <p>Get a lower price and earn extra EM points for your favorite games, starting from
-                                    Mobile Legends, Free Fire, CODM, and many more!</p>
-                                <p><br></p>
-                                <a href="#"
-                                    class="btn btn-light-blue rounded-0 px-4 py-2">BUY ON METAZONE</a>
-                                <div class="scroll-down-widget">
-                                    <p>scroll down</p>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="30" viewBox="0 0 18 30">
-                                        <g id="Group_2092" data-name="Group 2092" transform="translate(-1829 -975.5)">
-                                            <g id="Rectangle_3" data-name="Rectangle 3"
-                                                transform="translate(1847 975.5) rotate(90)" fill="none" stroke="#fff"
-                                                stroke-width="1">
-                                                <rect width="30" height="18" rx="9" stroke="none" />
-                                                <rect x="0.5" y="0.5" width="29" height="17" rx="8.5" fill="none" />
-                                            </g>
-                                            <circle id="Ellipse_1" data-name="Ellipse 1" cx="2" cy="2" r="2"
-                                                transform="translate(1836 982)" fill="#fff" />
-                                        </g>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <div class="swiper-button-next text-white"></div>
                 <div class="swiper-button-prev text-white"></div>
@@ -248,22 +218,13 @@
                     <div class="col-lg-10" style="overflow: hidden">
                         <div class="swiper-partner" id="swiper-partners">
                             <div class="swiper-wrapper">
+                                @foreach ($partners as $partner)
                                 <div class="swiper-slide d-flex align-items-center px-5">
-                                    <img src="{{ url('assets/images//partners/befPBT88bbbLjWnUAUz5lJtoieXlhwx2603eKjc6.png') }}" alt="Axis"
+                                    <img src="{{ url($partner->logo) }}" alt="{{$partner->name}}"
                                         class="img-fluid">
                                 </div>
-                                <div class="swiper-slide d-flex align-items-center px-5">
-                                    <img src="{{ url('assets/images//partners/nYZ5a7vVrqcFhUzU6i1PsXxCPm6KsoBHPayHrZld.png') }}"
-                                        alt="Pop Mie" class="img-fluid">
-                                </div>
-                                <div class="swiper-slide d-flex align-items-center px-5">
-                                    <img src="{{ url('assets/images//partners/thDDEsRmO6SuxOFYV9ZKDFSXfEjShPp8FLDmgTLP.png') }}"
-                                        alt="Top Coffee" class="img-fluid">
-                                </div>
-                                <div class="swiper-slide d-flex align-items-center px-5">
-                                    <img src="{{ url('assets/images//partners/WiSObrm0Lbgb9ZUiXWxvdesBPByYeSzTPq5hPbcS.png') }}"
-                                        alt="LinkAja" class="img-fluid">
-                                </div>
+                                @endforeach
+
                             </div>
                         </div>
                     </div>
@@ -424,6 +385,8 @@
                 <div class="col-lg-10 right-side" style="overflow: hidden;">
                     <div class="swiper-results" id="swiper-past-results">
                         <div class="swiper-wrapper">
+
+                            @for ($i=0;$i<count($match_details);$i++)
                             <div class="swiper-slide">
                                 <div class="result-card mb-4">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="8.456" height="200.468"
@@ -435,30 +398,31 @@
                                     </svg>
                                     <div class="description">
                                         <div class="time-container">
-                                            <p class="date"> <span class="text-light-blue"></span>
+                                            <p class="date" style="background-image: linear-gradient(to left, white 40%, #56c4f4 45%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;text-transform: uppercase;"> {{date("d M Y", strtotime($match_details[$i]->date))}}<span class="text-light-blue"></span>
                                             </p>
                                             <p>-</p>
-                                            <p class="time"></p>
+                                            <p class="time">{{date("h.i a", strtotime($match_details[$i]->time))}}</p>
                                         </div>
                                         <div class="progress-container">
-                                            <p></p>
+                                            <p>{{$match_details[$i]->stage}}</p>
                                         </div>
                                     </div>
                                     <div class="team">
                                         <p class="team-name"></p>
                                         <div class="logos">
                                             <img class="home-team"
-                                                src=""
-                                                alt="">
-                                            <p class="home-score"></p>
+                                                src="{{ url($match_details[$i]->first_team_logo)}}"
+                                                alt="home-team">
+                                            <p class="home-score">{{$match_details[$i]->first_team_score}}</p>
                                             <p class="vs global-vs">VS</p>
-                                            <p class="away-score"></p>
+                                            <p class="away-score">{{$match_details[$i]->second_team_score}}</p>
                                             <img class="away-team"
-                                                src=""
-                                                alt="">
+                                                src="{{ url($match_details[$i]->second_team_logo)}}"
+                                                alt="away-team">
                                         </div>
                                     </div>
                                 </div>
+                                @if ($i + 1 < count($match_details))
                                 <div class="result-card mb-4">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="8.456" height="200.468"
                                         viewBox="0 0 8.456 200.468">
@@ -469,283 +433,34 @@
                                     </svg>
                                     <div class="description">
                                         <div class="time-container">
-                                            <p class="date"> <span class="text-light-blue">18 APR</span>
-                                                2021
+                                            <p class="date" style="background-image: linear-gradient(to left, white 40%, #56c4f4 45%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;text-transform: uppercase;"> {{date("d M Y", strtotime($match_details[$i + 1]->date))}}<span class="text-light-blue"></span>
                                             </p>
                                             <p>-</p>
-                                            <p class="time">05.00 pm</p>
+                                            <p class="time">{{date("h.i a", strtotime($match_details[$i + 1]->time))}}</p>
                                         </div>
                                         <div class="progress-container">
-                                            <p>BO3</p>
+                                            <p>{{$match_details[$i + 1]->stage}}</p>
                                         </div>
                                     </div>
                                     <div class="team">
-                                        <p class="team-name">MPL S7</p>
+                                        <p class="team-name"></p>
                                         <div class="logos">
                                             <img class="home-team"
-                                                src="{{ url('assets/images//match-home_teams/QS8bFPMHutQgU1H5CorTwKmekwyenIwjieYGXhpY.png') }}"
-                                                alt="">
-                                            <p class="home-score"></p>
+                                                src="{{ url($match_details[$i + 1]->first_team_logo)}}"
+                                                alt="home-team">
+                                            <p class="home-score">{{$match_details[$i + 1]->first_team_score}}</p>
                                             <p class="vs global-vs">VS</p>
-                                            <p class="away-score"></p>
+                                            <p class="away-score">{{$match_details[$i + 1]->second_team_score}}</p>
                                             <img class="away-team"
-                                                src="{{ url('assets/images//match-away_teams/h8jLYywq8RvSHAF7YLXPrHrIZeiEuqmHQ68J9m4c.png') }}"
-                                                alt="">
+                                                src="{{ url($match_details[$i + 1]->second_team_logo)}}"
+                                                alt="away-team">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="result-card mb-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="8.456" height="200.468"
-                                        viewBox="0 0 8.456 200.468">
-                                        <path id="Path_37" data-name="Path 37"
-                                            d="M172.659,383.6l8.456,8.456H364.671l8.456-8.456Z"
-                                            transform="translate(-383.601 373.126) rotate(-90)" fill="#56c4f4"
-                                            opacity="0.297" />
-                                    </svg>
-                                    <div class="description">
-                                        <div class="time-container">
-                                            <p class="date"> <span class="text-light-blue">17 APR</span>
-                                                2021
-                                            </p>
-                                            <p>-</p>
-                                            <p class="time">11.30 am</p>
-                                        </div>
-                                        <div class="progress-container">
-                                            <p>BO3</p>
-                                        </div>
-                                    </div>
-                                    <div class="team">
-                                        <p class="team-name">MPL S7</p>
-                                        <div class="logos">
-                                            <img class="home-team"
-                                                src="{{ url('assets/images//match-home_teams/jl5xqs4xbOnWhJjGjqczwATh0TubxBp5vqzmrw9P.png') }}"
-                                                alt="">
-                                            <p class="home-score"></p>
-                                            <p class="vs global-vs">VS</p>
-                                            <p class="away-score"></p>
-                                            <img class="away-team"
-                                                src="{{ url('assets/images//match-away_teams/DgDiALRAuecUjgy1FNoD5yo4YCU78XoZVCRkr08e.png') }}"
-                                                alt="">
-                                        </div>
-                                    </div>
-                                </div>
+                                @endif
+                                <span style="display: none">{{$i++}}</span>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="result-card mb-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="8.456" height="200.468"
-                                        viewBox="0 0 8.456 200.468">
-                                        <path id="Path_37" data-name="Path 37"
-                                            d="M172.659,383.6l8.456,8.456H364.671l8.456-8.456Z"
-                                            transform="translate(-383.601 373.126) rotate(-90)" fill="#56c4f4"
-                                            opacity="0.297" />
-                                    </svg>
-                                    <div class="description">
-                                        <div class="time-container">
-                                            <p class="date"> <span class="text-light-blue">21 MAR</span>
-                                                2021
-                                            </p>
-                                            <p>-</p>
-                                            <p class="time">02.30 pm</p>
-                                        </div>
-                                        <div class="progress-container">
-                                            <p>BO3</p>
-                                        </div>
-                                    </div>
-                                    <div class="team">
-                                        <p class="team-name">MPL S7</p>
-                                        <div class="logos">
-                                            <img class="home-team"
-                                                src="{{ url('assets/images//match-home_teams/feU9aQsnhR6CmIkpEq28j05aYFOvyIYOPccPkolG.png') }}"
-                                                alt="">
-                                            <p class="home-score">2</p>
-                                            <p class="vs global-vs">VS</p>
-                                            <p class="away-score">1</p>
-                                            <img class="away-team"
-                                                src="{{ url('assets/images//match-away_teams/KnmU8syDgEGIdPa2AufVJlM5CGNnomFWrO93jy7T.png') }}"
-                                                alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="result-card mb-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="8.456" height="200.468"
-                                        viewBox="0 0 8.456 200.468">
-                                        <path id="Path_37" data-name="Path 37"
-                                            d="M172.659,383.6l8.456,8.456H364.671l8.456-8.456Z"
-                                            transform="translate(-383.601 373.126) rotate(-90)" fill="#56c4f4"
-                                            opacity="0.297" />
-                                    </svg>
-                                    <div class="description">
-                                        <div class="time-container">
-                                            <p class="date"> <span class="text-light-blue">20 MAR</span>
-                                                2021
-                                            </p>
-                                            <p>-</p>
-                                            <p class="time">05.00 pm</p>
-                                        </div>
-                                        <div class="progress-container">
-                                            <p>BO3</p>
-                                        </div>
-                                    </div>
-                                    <div class="team">
-                                        <p class="team-name">MPL S7</p>
-                                        <div class="logos">
-                                            <img class="home-team"
-                                                src="{{ url('assets/images//match-home_teams/CPqpnhrkgpr16b8KYqygxpMkA2xf6VmZUkhWF3Ad.png') }}"
-                                                alt="">
-                                            <p class="home-score">2</p>
-                                            <p class="vs global-vs">VS</p>
-                                            <p class="away-score">0</p>
-                                            <img class="away-team"
-                                                src="{{ url('assets/images//match-away_teams/X66KdoVR4CncoiXZiUY5f5ySopN0uwBg9zoYlbX7.png') }}"
-                                                alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="result-card mb-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="8.456" height="200.468"
-                                        viewBox="0 0 8.456 200.468">
-                                        <path id="Path_37" data-name="Path 37"
-                                            d="M172.659,383.6l8.456,8.456H364.671l8.456-8.456Z"
-                                            transform="translate(-383.601 373.126) rotate(-90)" fill="#56c4f4"
-                                            opacity="0.297" />
-                                    </svg>
-                                    <div class="description">
-                                        <div class="time-container">
-                                            <p class="date"> <span class="text-light-blue">13 MAR</span>
-                                                2021
-                                            </p>
-                                            <p>-</p>
-                                            <p class="time">05.00 pm</p>
-                                        </div>
-                                        <div class="progress-container">
-                                            <p>BO3</p>
-                                        </div>
-                                    </div>
-                                    <div class="team">
-                                        <p class="team-name">MPL S7</p>
-                                        <div class="logos">
-                                            <img class="home-team"
-                                                src="{{ url('assets/images//match-home_teams/QQnSb8hsRq5YqIMLxpwCDdMR2iJmtchpqJ2gjXw7.png') }}"
-                                                alt="">
-                                            <p class="home-score">2</p>
-                                            <p class="vs global-vs">VS</p>
-                                            <p class="away-score">0</p>
-                                            <img class="away-team"
-                                                src="{{ url('assets/images//match-away_teams/I1WNjaqCzpmAoIwhoUuJSTLPYJTYlcptKcS1ogz3.png') }}"
-                                                alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="result-card mb-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="8.456" height="200.468"
-                                        viewBox="0 0 8.456 200.468">
-                                        <path id="Path_37" data-name="Path 37"
-                                            d="M172.659,383.6l8.456,8.456H364.671l8.456-8.456Z"
-                                            transform="translate(-383.601 373.126) rotate(-90)" fill="#56c4f4"
-                                            opacity="0.297" />
-                                    </svg>
-                                    <div class="description">
-                                        <div class="time-container">
-                                            <p class="date"> <span class="text-light-blue">12 MAR</span>
-                                                2021
-                                            </p>
-                                            <p>-</p>
-                                            <p class="time">05.00 pm</p>
-                                        </div>
-                                        <div class="progress-container">
-                                            <p>BO3</p>
-                                        </div>
-                                    </div>
-                                    <div class="team">
-                                        <p class="team-name">MPL S7</p>
-                                        <div class="logos">
-                                            <img class="home-team"
-                                                src="{{ url('assets/images//match-home_teams/Ok5XkY5Mx2e6jfiYVdfYlAtfivC9j9IpppxB3QFM.png') }}"
-                                                alt="">
-                                            <p class="home-score">2</p>
-                                            <p class="vs global-vs">VS</p>
-                                            <p class="away-score">0</p>
-                                            <img class="away-team"
-                                                src="{{ url('assets/images//match-away_teams/m0hQkakQGKtbuDVaOHtzQKds8lPeh7lcdh9W55Dd.png') }}"
-                                                alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="result-card mb-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="8.456" height="200.468"
-                                        viewBox="0 0 8.456 200.468">
-                                        <path id="Path_37" data-name="Path 37"
-                                            d="M172.659,383.6l8.456,8.456H364.671l8.456-8.456Z"
-                                            transform="translate(-383.601 373.126) rotate(-90)" fill="#56c4f4"
-                                            opacity="0.297" />
-                                    </svg>
-                                    <div class="description">
-                                        <div class="time-container">
-                                            <p class="date"> <span class="text-light-blue">11 MAR</span>
-                                                2021
-                                            </p>
-                                            <p>-</p>
-                                            <p class="time">03.30 pm</p>
-                                        </div>
-                                        <div class="progress-container">
-                                            <p>Bo5</p>
-                                        </div>
-                                    </div>
-                                    <div class="team">
-                                        <p class="team-name">MDL Season 3</p>
-                                        <div class="logos">
-                                            <img class="home-team"
-                                                src="{{ url('assets/images//match-home_teams/DGfPzB3ZB1bunJ4BRnVQuM870WC5E3m2kc9G3H9B.png') }}"
-                                                alt="">
-                                            <p class="home-score">1</p>
-                                            <p class="vs global-vs">VS</p>
-                                            <p class="away-score">2</p>
-                                            <img class="away-team"
-                                                src="{{ url('assets/images//match-away_teams/IcFlEZVP3zhZLUrmw5DSoacX6cyVWPpb36RXpnxN.png') }}"
-                                                alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="result-card mb-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="8.456" height="200.468"
-                                        viewBox="0 0 8.456 200.468">
-                                        <path id="Path_37" data-name="Path 37"
-                                            d="M172.659,383.6l8.456,8.456H364.671l8.456-8.456Z"
-                                            transform="translate(-383.601 373.126) rotate(-90)" fill="#56c4f4"
-                                            opacity="0.297" />
-                                    </svg>
-                                    <div class="description">
-                                        <div class="time-container">
-                                            <p class="date"> <span class="text-light-blue">10 MAR</span>
-                                                2021
-                                            </p>
-                                            <p>-</p>
-                                            <p class="time">11.00 am</p>
-                                        </div>
-                                        <div class="progress-container">
-                                            <p>Bo3</p>
-                                        </div>
-                                    </div>
-                                    <div class="team">
-                                        <p class="team-name">MDL Season 3</p>
-                                        <div class="logos">
-                                            <img class="home-team"
-                                                src="{{ url('assets/images//match-home_teams/PlvOYWn06uefG1aE6ARkHCNmyRLsDk0KgLfgLiFc.png') }}"
-                                                alt="">
-                                            <p class="home-score">2</p>
-                                            <p class="vs global-vs">VS</p>
-                                            <p class="away-score">0</p>
-                                            <img class="away-team"
-                                                src="{{ url('assets/images//match-away_teams/aG4kXdDhIAW3sbKDjsDslRJ9xP26SpyttNvxUj03.jpg') }}"
-                                                alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endfor
                         </div>
                     </div>
                 </div>
