@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Game;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
 
 class GameController extends Controller
@@ -60,6 +61,7 @@ class GameController extends Controller
     {
         $table = new Game();
         $table->name = $request->name;
+        $table->slug = Str::slug($request->name);
         if ($request->file('logo')) {
             $image = $request->logo;
             $file_name =  time() . "." . $image->getClientOriginalExtension();
@@ -105,6 +107,7 @@ class GameController extends Controller
     {
         $table = Game::find($request->id);
         $table->name = $request->name;
+        $table->slug = Str::slug($request->name);
         if ($request->file('logo')) {
             $image = $request->logo;
             $file_name =  time() . "." . $image->getClientOriginalExtension();

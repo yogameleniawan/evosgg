@@ -26,6 +26,7 @@ Route::get('/', function () {
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/match', [HomeController::class, 'searchResult'])->name('searchResult');
 
 Auth::routes();
 

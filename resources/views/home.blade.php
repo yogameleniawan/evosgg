@@ -19,13 +19,13 @@
         content="Join Official Membership and be ready for another big release of EVOS Esports  home match tickets, which will be on sale soon!">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="index.html">
+    <meta property="og:url" content="#">
     <meta property="og:title" content="EVOS – EVOS Esports — #1 Esports Team in SEA">
     <meta property="og:description" content="EVOS – EVOS Esports — #1 Esports Team in SEA">
     <meta property="og:image" content="{{ url('assets/images//pages/Oon92liTCVWOj7IUe5LFjSUiiD2UpDaHAma8bPUa.png') }}">
 
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="index.html">
+    <meta property="twitter:url" content="#">
     <meta property="twitter:title" content="EVOS – EVOS Esports — #1 Esports Team in SEA">
     <meta property="twitter:description" content="EVOS – EVOS Esports — #1 Esports Team in SEA">
     <meta property="twitter:image" content="{{ url('assets/images//pages/Oon92liTCVWOj7IUe5LFjSUiiD2UpDaHAma8bPUa.png') }}">
@@ -294,31 +294,17 @@
                         sort by
                     </p>
                     <ul class="game-list">
-                        <li class="active">
-                            <a href="#">
-                                Mobile Legends
+                        @foreach ($games as $key=>$game)
+                        <li class="
+                        @if (request()->has('search'))
+                            {{ request()->search == $game->slug ? 'active' : ''}}
+                        @endif
+                        ">
+                            <a href="{{ url('/match?search=') . $game->slug}}">
+                                {{$game->name}}
                             </a>
                         </li>
-                        <li class="">
-                            <a href="#">
-                                PUBGM
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="#">
-                                Free Fire
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="#">
-                                Realm of Valor
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="#">
-                                League Of Legends: Wild Rift
-                            </a>
-                        </li>
+                        @endforeach
                     </ul>
                     <div class="swiper-navigation" id="swiper-navigation-past">
                         <div class="btn-group">
@@ -385,7 +371,7 @@
                 <div class="col-lg-10 right-side" style="overflow: hidden;">
                     <div class="swiper-results" id="swiper-past-results">
                         <div class="swiper-wrapper">
-
+                            @if (count($match_details) > 0)
                             @for ($i=0;$i<count($match_details);$i++)
                             <div class="swiper-slide">
                                 <div class="result-card mb-4">
@@ -461,6 +447,17 @@
                                 <span style="display: none">{{$i++}}</span>
                             </div>
                             @endfor
+                            @else
+                            <div class="no-match">
+                                <div class="global-title">
+                                    <p><strong>NO MATCH</strong></p>
+                                    <p>AVAILABLE</p>
+                                </div>
+                                <div class="content">
+                                    <p>Sorry, no match available yet.</p>
+                                </div>
+                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -484,36 +481,16 @@
                     <div class="col-lg-10 h-100 right-side" style="overflow: hidden">
                         <div class="swiper-squads" id="swiper-squads">
                             <div class="swiper-wrapper">
+                                @foreach ($games as $game)
+
                                 <div class="swiper-slide d-flex align-items-end pb-4 justify-content-center">
                                     <a href="#">
-                                        <img src="{{ url('assets/images/game-logos/4XOM8rrCvvtMh2VDmeHiMzIUW6qw2nuELkFrYuAP.png') }}"
-                                            alt="Mobile Legends" class="img-fluid">
+                                        <img src="{{ url($game->logo) }}"
+                                            alt="{{$game->name}}" class="img-fluid">
                                     </a>
                                 </div>
-                                <div class="swiper-slide d-flex align-items-end pb-4 justify-content-center">
-                                    <a href="#">
-                                        <img src="{{ url('assets/images/game-logos/ppYmz0waG9Xyvk1WKfjiggF1J3cuikt2zDFt6Udp.png') }}"
-                                            alt="PUBGM" class="img-fluid">
-                                    </a>
-                                </div>
-                                <div class="swiper-slide d-flex align-items-end pb-4 justify-content-center">
-                                    <a href="#">
-                                        <img src="{{ url('assets/images/game-logos/IhX8oN2oLPXs9P8kNh7ZcwukY0msoCE9A7Wm1gjy.png') }}"
-                                            alt="Free Fire" class="img-fluid">
-                                    </a>
-                                </div>
-                                <div class="swiper-slide d-flex align-items-end pb-4 justify-content-center">
-                                    <a href="#">
-                                        <img src="{{ url('assets/images/game-logos/Y4P38nD4lkBWVAo4pVSRjHtW1Mf14UckLN84REz5.png') }}"
-                                            alt="Realm of Valor" class="img-fluid">
-                                    </a>
-                                </div>
-                                <div class="swiper-slide d-flex align-items-end pb-4 justify-content-center">
-                                    <a href="#">
-                                        <img src="{{ url('assets/images/game-logos/5wq2rXODjZL4y5OLsyQpWdt9x3yhvOIgQaigmFxF.png') }}"
-                                            alt="League Of Legends: Wild Rift" class="img-fluid">
-                                    </a>
-                                </div>
+                                @endforeach
+
                             </div>
                         </div>
                     </div>
@@ -523,207 +500,55 @@
         <section id="slider-teams" class="my-5">
             <div class="swiper-teams" id="swiper-teams">
                 <div class="swiper-wrapper">
+                    @foreach ($squads as $squad)
                     <div class="swiper-slide pb-5">
                         <div class="teams-card"
-                            style="background-image: url('assets/images//teams/c6zgQhsJiYl1OOVI55G27XgJRT6f41pDRfkCWmPA.jpg')">
+                            style="background-image: url('{{$squad->image}}')">
                             <div class="description">
                                 <div class="name-container">
                                     <a href="#">
-                                        <div class="name">EVOS Legends</div>
-                                        <div class="game">Mobile Legends</div>
+                                        <div class="name">{{$squad->name}}</div>
+                                        <div class="game">{{$squad->game_name}}</div>
                                     </a>
                                 </div>
                                 <div class="country">
-                                    <img src="{{ url('assets/images//flags/ID.png') }}" alt="">
+                                    @if ($squad->country == 'ID')
+                                    <img src="{{url('assets/images/flags/ID.png')}}">
+                                    @elseif ($squad->country == 'EN')
+                                    <img src="{{url('assets/images/flags/EN.png')}}">
+                                    @elseif ($squad->country == 'TH')
+                                    <img src="{{url('assets/images/flags/TH.png')}}">
+                                    @elseif ($squad->country == 'MY')
+                                    <img src="{{url('assets/images/flags/MY.png')}}">
+                                    @elseif ($squad->country == 'SG')
+                                    <img src="{{url('assets/images/flags/SG.png')}}">
+                                    @elseif ($squad->country == 'VN')
+                                    <img src="{{url('assets/images/flags/VN.png')}}">
+                                    @else
+                                    <img src="{{url('assets/images/flags/ALL.png')}}">
+                                    @endif
 
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide pb-5">
-                        <div class="teams-card"
-                            style="background-image: url('assets/images//teams/5UBqcx1nGn1J1u2H5gdu1T6cvKwkLc2NEa0DdrDg.jpg')">
-                            <div class="description">
-                                <div class="name-container">
-                                    <a href="#">
-                                        <div class="name">EVOS Icon</div>
-                                        <div class="game">Mobile Legends</div>
-                                    </a>
-                                </div>
-                                <div class="country">
-                                    <img src="{{ url('assets/images//flags/ID.png') }}" alt="">
+                    @endforeach
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide pb-5">
-                        <div class="teams-card"
-                            style="background-image: url('assets/images//teams/Ow5fRKuQBf2zznbgkwHIK0zOudal0ciT3tcISdkh.jpg')">
-                            <div class="description">
-                                <div class="name-container">
-                                    <a href="#">
-                                        <div class="name">EVOS Lynx</div>
-                                        <div class="game">Mobile Legends</div>
-                                    </a>
-                                </div>
-                                <div class="country">
-                                    <img src="{{ url('assets/images//flags/ID.png') }}" alt="">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide pb-5">
-                        <div class="teams-card"
-                            style="background-image: url('assets/images//teams/v3m2BpwT1KxesVSsT6FukDUyQsCXNojiWP0XVNk7.jpg')">
-                            <div class="description">
-                                <div class="name-container">
-                                    <a href="#">
-                                        <div class="name">EVOS Divine</div>
-                                        <div class="game">Free Fire</div>
-                                    </a>
-                                </div>
-                                <div class="country">
-                                    <img src="{{ url('assets/images//flags/ID.png') }}" alt="">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide pb-5">
-                        <div class="teams-card"
-                            style="background-image: url('assets/images//teams/8YX5fSohmo8RM5of5AOPrr3vCOllWtYQUIgMlugu.jpg')">
-                            <div class="description">
-                                <div class="name-container">
-                                    <a href="#">
-                                        <div class="name">EVOS Reborn</div>
-                                        <div class="game">PUBGM</div>
-                                    </a>
-                                </div>
-                                <div class="country">
-                                    <img src="{{ url('assets/images//flags/ID.png') }}" alt="">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide pb-5">
-                        <div class="teams-card"
-                            style="background-image: url('assets/images//teams/ZHu3OFua8Vj4cSOCOWJv2UOH33F6OaWbsjYYYJs0.jpg')">
-                            <div class="description">
-                                <div class="name-container">
-                                    <a href="#">
-                                        <div class="name">EVOS VIP</div>
-                                        <div class="game">PUBGM</div>
-                                    </a>
-                                </div>
-                                <div class="country">
-                                    <img src="{{ url('assets/images//flags/MY.png') }}" alt="">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide pb-5">
-                        <div class="teams-card"
-                            style="background-image: url('assets/images//teams/s8DlnSgGnabJsxHPAm9hWgkPBBK9rkdvCC6EuQCc.jpg')">
-                            <div class="description">
-                                <div class="name-container">
-                                    <a href="#">
-                                        <div class="name">SUHAZ EVOS</div>
-                                        <div class="game">Mobile Legends</div>
-                                    </a>
-                                </div>
-                                <div class="country">
-                                    <img src="{{ url('assets/images//flags/MY.png') }}" alt="">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide pb-5">
-                        <div class="teams-card"
-                            style="background-image: url('assets/images//teams/IDqGiuTfPoqMDZ06PPRyZ2Lr1Tz8uC83RjtXx68T.jpg')">
-                            <div class="description">
-                                <div class="name-container">
-                                    <a href="#">
-                                        <div class="name">EVOS SG</div>
-                                        <div class="game">Mobile Legends</div>
-                                    </a>
-                                </div>
-                                <div class="country">
-                                    <img src="{{ url('assets/images//flags/SG.png') }}" alt="">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide pb-5">
-                        <div class="teams-card"
-                            style="background-image: url('assets/images//teams/VxJGexkuIUchEfhRAUd0SrAltEFve5YQvwILIUew.jpg')">
-                            <div class="description">
-                                <div class="name-container">
-                                    <a href="#">
-                                        <div class="name">EVOS ROV</div>
-                                        <div class="game">Realm of Valor</div>
-                                    </a>
-                                </div>
-                                <div class="country">
-                                    <img src="{{ url('assets/images//flags/TH.png') }}" alt="">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide pb-5">
-                        <div class="teams-card"
-                            style="background-image: url('assets/images//teams/4j9rE3tUUGEG5Y9hVz8LpAn4yNasgEDLLnhVG4ZJ.jpg')">
-                            <div class="description">
-                                <div class="name-container">
-                                    <a href="#">
-                                        <div class="name">EVOS FF Thai</div>
-                                        <div class="game">Free Fire</div>
-                                    </a>
-                                </div>
-                                <div class="country">
-                                    <img src="{{ url('assets/images//flags/TH.png') }}" alt="">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide pb-5">
-                        <div class="teams-card"
-                            style="background-image: url('assets/images//teams/w4dBGUJVplEc76Cb7dSuhXuRQMIhEcxFRx71ZbHh.jpg')">
-                            <div class="description">
-                                <div class="name-container">
-                                    <a href="#">
-                                        <div class="name">EVOS TH</div>
-                                        <div class="game">League Of Legends: Wild Rift</div>
-                                    </a>
-                                </div>
-                                <div class="country">
-                                    <img src="{{ url('assets/images//flags/TH.png') }}" alt="">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
         <section id="latest-update" class="my-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 left-side"
-                        style="background-image: url('assets/images/articles/yguUmkDqFrRhUI27Sd8gOLEmUdlcMggwfMzZYfZZ.png')">
+                    @foreach ($articles as $key => $article)
+                    <div id="left-side{{$key}}" class="col-lg-8 left-side {{$key > 0 ? 'd-none' : ''}}"
+                        style="background-image: url('{{$article->image}}')">
                         <div class="description w-75">
                             <div class="category">
                                 <p>NEWS</p>
                             </div>
-                            <div class="title">
-                                <p>This is a Gameplay Leak from Joy, the New Hero in Mobile Legends</p>
+                            <div id="title-left-side" class="title">
+                                <p>{{$article->title}}</p>
                             </div>
                             <a href="#"
                                 class="btn rounded-0 btn-light-blue px-4">
@@ -736,42 +561,22 @@
                                 transform="translate(392.057 -172.659) rotate(90)" fill="#56c4f4" />
                         </svg>
                     </div>
+                    @endforeach
                     <div class="col-lg-4 right-side py-5">
                         <div class="global-title">
                             <p><strong>LATEST</strong> UPDATE</p>
                         </div>
                         <ul>
-                            <li>
-                                <p>#1</p>
-                                <a data-url="news/this-is-a-gameplay-leak-from-joy-the-new-hero-in-mobile-legends-en.html"
-                                    data-background="{{ url('assets/images/articles/yguUmkDqFrRhUI27Sd8gOLEmUdlcMggwfMzZYfZZ.png') }}">This
-                                    is a Gameplay Leak from Joy, the New Hero in Mobile Legends</a>
+                            @foreach ($articles as $key => $article)
+                            <li id="list{{$key}}" class="{{ $key == 0 ? 'active' : '' }}" onclick="showArticle('{{$key}}')">
+                                <p>#{{$key + 1}}</p>
+                                <a data-url="#"
+                                    data-background="{{ url($article->image) }}">
+                                {{$article->title}}
+                                </a>
                             </li>
-                            <li>
-                                <p>#2</p>
-                                <a data-url="news/you-can-get-new-motorbike-skins-and-bundles-for-free-at-the-free-fire-top-up-bonus-event-en.html"
-                                    data-background="{{ url('assets/images//articles/G5z7kfhh82ye5ALxDqA7Hlmo0USTkQZ0CoKlFV9m.png') }}">You
-                                    Can Get New Motorbike Skins and Bundles for Free at the Free Fire Top Up Bonus
-                                    Event</a>
-                            </li>
-                            <li>
-                                <p>#3</p>
-                                <a data-url="news/once-the-op-is-in-mobile-legends-moonton-is-ready-to-give-nerf-to-nana-en.html"
-                                    data-background="{{ url('assets/images//articles/mBAWHOYvKsTGUABU0c51xm5cQ3bUT4y1Acy9FocA.png') }}">Once
-                                    the OP is in Mobile Legends, Moonton is ready to give Nerf to Nana</a>
-                            </li>
-                            <li>
-                                <p>#4</p>
-                                <a data-url="news/you-can-get-j-biebs-for-free-at-free-fires-5th-anniversary-event-en.html"
-                                    data-background="{{ url('assets/images//articles/cwcmZCbbVT7N4lzRZSWZNFZOFqBAR84ZBoJLvW0l.png') }}">You
-                                    Can Get J Biebs for Free at Free Fire&#039;s 5th Anniversary Event</a>
-                            </li>
-                            <li>
-                                <p>#5</p>
-                                <a data-url="news/this-is-the-right-counter-hero-for-vexana-mobile-legends-en.html"
-                                    data-background="{{ url('assets/images//articles/5HJIlUWvPwgbu8LTso8xuO73cMOXpIXQYMtcxGj1.png') }}">This
-                                    is the Right Counter Hero for Vexana Mobile Legends!</a>
-                            </li>
+                            @endforeach
+
                         </ul>
                         <svg xmlns="http://www.w3.org/2000/svg" width="8.456" height="200.468"
                             viewBox="0 0 8.456 200.468" class="svg-left">
@@ -820,95 +625,26 @@
             </div>
             <div class="swiper-news bottom-part" id="swiper-latest-update-mobile">
                 <div class="swiper-wrapper">
+                    @foreach ($articles as $key => $article)
+
                     <div class="swiper-slide">
-                        <div class="row" data-title="This is a Gameplay Leak from Joy, the New Hero in Mobile Legends"
-                            data-slug="news/this-is-a-gameplay-leak-from-joy-the-new-hero-in-mobile-legends-en.html"
-                            data-thumbnail="{{ url('assets/images//articles/yguUmkDqFrRhUI27Sd8gOLEmUdlcMggwfMzZYfZZ.png') }}"
-                            data-category_name="Mobile Legends">
+                        <div class="row" data-title="{{$article->title}}"
+                            data-slug=""
+                            data-thumbnail="{{ url($article->image) }}"
+                            >
                             <div class="col-1">
                                 <p>
-                                    #1
+                                    #{{$key + 1}}
                                 </p>
                             </div>
                             <div class="col-8">
                                 <p>
-                                    This is a Gameplay Leak from Joy, the New Hero in Mobile Legends
+                                    {{$article->title}}
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="row"
-                            data-title="You Can Get New Motorbike Skins and Bundles for Free at the Free Fire Top Up Bonus Event"
-                            data-slug="news/you-can-get-new-motorbike-skins-and-bundles-for-free-at-the-free-fire-top-up-bonus-event-en.html"
-                            data-thumbnail="{{ url('assets/images//articles/G5z7kfhh82ye5ALxDqA7Hlmo0USTkQZ0CoKlFV9m.png') }}"
-                            data-category_name="Free Fire">
-                            <div class="col-1">
-                                <p>
-                                    #2
-                                </p>
-                            </div>
-                            <div class="col-8">
-                                <p>
-                                    You Can Get New Motorbike Skins and Bundles for Free at the Free Fire Top Up Bonus
-                                    Event
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="row"
-                            data-title="Once the OP is in Mobile Legends, Moonton is ready to give Nerf to Nana"
-                            data-slug="news/once-the-op-is-in-mobile-legends-moonton-is-ready-to-give-nerf-to-nana-en.html"
-                            data-thumbnail="{{ url('assets/images//articles/mBAWHOYvKsTGUABU0c51xm5cQ3bUT4y1Acy9FocA.png') }}"
-                            data-category_name="Mobile Legends">
-                            <div class="col-1">
-                                <p>
-                                    #3
-                                </p>
-                            </div>
-                            <div class="col-8">
-                                <p>
-                                    Once the OP is in Mobile Legends, Moonton is ready to give Nerf to Nana
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="row"
-                            data-title="You Can Get J Biebs for Free at Free Fire&#039;s 5th Anniversary Event"
-                            data-slug="news/you-can-get-j-biebs-for-free-at-free-fires-5th-anniversary-event-en.html"
-                            data-thumbnail="{{ url('assets/images//articles/cwcmZCbbVT7N4lzRZSWZNFZOFqBAR84ZBoJLvW0l.png') }}"
-                            data-category_name="Free Fire">
-                            <div class="col-1">
-                                <p>
-                                    #4
-                                </p>
-                            </div>
-                            <div class="col-8">
-                                <p>
-                                    You Can Get J Biebs for Free at Free Fire&#039;s 5th Anniversary Event
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="row" data-title="This is the Right Counter Hero for Vexana Mobile Legends!"
-                            data-slug="news/this-is-the-right-counter-hero-for-vexana-mobile-legends-en.html"
-                            data-thumbnail="{{ url('assets/images//articles/5HJIlUWvPwgbu8LTso8xuO73cMOXpIXQYMtcxGj1.png') }}"
-                            data-category_name="Mobile Legends">
-                            <div class="col-1">
-                                <p>
-                                    #5
-                                </p>
-                            </div>
-                            <div class="col-8">
-                                <p>
-                                    This is the Right Counter Hero for Vexana Mobile Legends!
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -958,7 +694,6 @@
                                     d="M6.641,11.992a.832.832,0,0,0,.006-1.172L2.782,6.943H17.51a.828.828,0,0,0,0-1.655H2.782L6.654,1.41A.838.838,0,0,0,6.647.238.824.824,0,0,0,5.482.244L.236,5.529h0a.93.93,0,0,0-.172.261A.79.79,0,0,0,0,6.109a.83.83,0,0,0,.236.579l5.247,5.285A.811.811,0,0,0,6.641,11.992Z"
                                     transform="translate(21.607 8.645) rotate(135)" fill="#fff" />
                             </svg>
-
                         </a>
                     </div>
                 </div>
@@ -1208,6 +943,18 @@
         {
             $(element).addClass('active')
             // $(this).addClass('active')
+        }
+      </script>
+
+      <script>
+        let temp = 0;
+        function showArticle(key)
+        {
+            $('#left-side' + temp).addClass('d-none');
+            $('#left-side' + key).removeClass('d-none');
+            $('#list' + temp).removeClass('active');
+            $('#list' + key).addClass('active');
+            temp = key;
         }
       </script>
 </body>
