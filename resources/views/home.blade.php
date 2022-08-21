@@ -173,7 +173,7 @@
                             style="background-image: url('assets/images/banners/GFA29GFApQzLl9onMJ4RxgK475XBU4stxz0RekQ5.jpg')">
                             <div class="inner-banner">
                                 <h4><br></h4>
-                                <h3>ALL NEW&nbsp;EVOS FAMS CUP</h3>
+                                <h3>ALL NEW EVOS FAMS CUP</h3>
                                 <p>—</p>
                                 <p>Prove your best skills and champion mentality, make your dreams of becoming a
                                     professional player come true!</p>

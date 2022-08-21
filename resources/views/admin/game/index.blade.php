@@ -4,17 +4,17 @@
 @endsection
 
 @section('breadcumb')
-<li><a href="javascript:void(0);">Banner</a></li>
+<li><a href="javascript:void(0);">Game</a></li>
 @endsection
 @section('title')
-Banner
+Game
 @endsection
 @section('content')
 <div class="card">
     <div class="card-body">
         <h3 class="mb-3">
             @section('title_table')
-            Banner
+            Game
             @endsection
         </h3>
         <button type="button" onclick="addModal()" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Add</button>
@@ -22,8 +22,8 @@ Banner
             <table id="data_table" class="table table-bordered table-striped table-hover js-basic-example dataTable">
                 <thead>
                     <tr>
-                        <th>Title</th>
-                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Logo</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -50,10 +50,10 @@ Banner
             processing: true,
             serverSide: true,
             searching: true,
-            ajax: "{{ route('banner.index') }}",
+            ajax: "{{ route('game.index') }}",
             columns: [{
-                    data: 'title',
-                    name: 'title'
+                    data: 'name',
+                    name: 'name'
                 },
                 {
                     data: 'image',
@@ -93,7 +93,7 @@ Banner
 </script>
 <script>
     function previewImage() {
-        const image = document.querySelector('#image');
+        const image = document.querySelector('#logo');
         const imgPreview = document.querySelector('.img-preview');
         imgPreview.style.display = 'block';
         const ofReader = new FileReader();
@@ -108,37 +108,18 @@ Banner
     {
         let html = `<div class="modal-body">
                 <form id="form-data" enctype="multipart/form-data">
-                    <label for="title"> Title</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input type="text" name="title" class="form-control" placeholder="Title" autocomplete="off" required>
+                            <input type="text" name="name" class="form-control" placeholder="Name" autocomplete="off" required>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <div class="form-line">
-                            <input type="text" name="description" class="form-control" placeholder="Description" autocomplete="off" required>
-                        </div>
-                    </div>
+                    <label for="logo"> Logo</label>
 
                     <div class="form-group">
+                        <img class="img-preview img-fluid mb-3 col-sm-2" >
                         <div class="form-line">
-                            <input type="text" name="button" class="form-control" placeholder="Button" autocomplete="off" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="form-line">
-                            <input type="text" name="button_link" class="form-control" placeholder="Button Link" autocomplete="off" required>
-                        </div>
-                    </div>
-
-                    <label for="image"> Image</label>
-
-                    <div class="form-group">
-                        <img class="img-preview img-fluid mb-3 col-sm-2">
-                        <div class="form-line">
-                            <input type="file" id="image" class="form-control" name="image" onchange="previewImage()">
+                            <input type="file" id="logo" class="form-control" name="logo" onchange="previewImage()" required>
                         </div>
                     </div>
                 </form>
@@ -162,37 +143,19 @@ Banner
         let html = `<div class="modal-body">
                 <form id="form-data" enctype="multipart/form-data">
                     <input name="id" value="${data.id}" type="hidden">
-                    <label for="title"> Title</label>
+                    <label for="name"> Name</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input type="text" name="title" class="form-control" placeholder="Title" autocomplete="off" value="${data.title}">
+                            <input type="text" name="name" class="form-control" placeholder="Name" autocomplete="off" value="${data.name}">
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <div class="form-line">
-                            <input type="text" name="description" class="form-control" placeholder="Description" autocomplete="off" value="${data.description}">
-                        </div>
-                    </div>
+                    <label for="logo"> Logo</label>
 
                     <div class="form-group">
+                        <img class="img-preview img-fluid mb-3 col-sm-2" src="{{ url('${data.logo}') }}">
                         <div class="form-line">
-                            <input type="text" name="button" class="form-control" placeholder="Button" autocomplete="off" value="${data.button}">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="form-line">
-                            <input type="text" name="button_link" class="form-control" placeholder="Button Link" autocomplete="off" value="${data.button_link}">
-                        </div>
-                    </div>
-
-                    <label for="image"> Image</label>
-
-                    <div class="form-group">
-                        <img class="img-preview img-fluid mb-3 col-sm-2" src="{{ url('${data.image}') }}">
-                        <div class="form-line">
-                            <input type="file" id="image" class="form-control" name="image" onchange="previewImage()">
+                            <input type="file" id="logo" class="form-control" name="logo" onchange="previewImage()">
                         </div>
                     </div>
                 </form>
@@ -216,34 +179,16 @@ Banner
         let html = `<div class="modal-body">
                 <form id="form-data" enctype="multipart/form-data">
                     <input id="id" name="id" value="${data.id}" type="hidden">
-                    <label for="title"> Title</label>
+                    <label for="name"> Name</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input type="text" name="title" class="form-control" placeholder="Title" autocomplete="off" value="${data.title}" disabled>
+                            <input type="text" name="name" class="form-control" placeholder="Name" autocomplete="off" value="${data.name}" disabled>
                         </div>
                     </div>
 
+                    <label for="logo"> Logo</label>
                     <div class="form-group">
-                        <div class="form-line">
-                            <input type="text" name="description" class="form-control" placeholder="Description" autocomplete="off" value="${data.description}">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="form-line">
-                            <input type="text" name="button" class="form-control" placeholder="Button" autocomplete="off" value="${data.button}">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="form-line">
-                            <input type="text" name="button_link" class="form-control" placeholder="Button Link" autocomplete="off" value="${data.button_link}">
-                        </div>
-                    </div>
-
-                    <label for="image"> Image</label>
-                    <div class="form-group">
-                        <img class="img-preview img-fluid mb-3 col-sm-2" src="{{ url('${data.image}') }}">
+                        <img class="img-preview img-fluid mb-3 col-sm-2" src="{{ url('${data.logo}') }}">
                     </div>
                 </form>
             </div>
@@ -267,7 +212,7 @@ Banner
         $('#btn-action').addClass('d-none')
         let data = new FormData($('#form-data')[0]);
         $.ajax({
-            url: '{{route('banner.store')}}',
+            url: '{{route('game.store')}}',
             type: "POST",
             dataType: "json",
             cache: false,
@@ -281,7 +226,7 @@ Banner
                 500: function(response) {
                     console.log(response)
                     Toastify({
-                        text: 'Banner add unsuccessful',
+                        text: 'Game add unsuccessful',
                         backgroundColor: '#d74d4d',
                     }).showToast();
                     $('#btn-loader').addClass('d-none')
@@ -291,7 +236,7 @@ Banner
             success: function(data) {
                 $("#form-data")[0].reset()
                 Toastify({
-                    text: 'Banner add successful',
+                    text: 'Game add successful',
                     backgroundColor: '#435ebe',
                 }).showToast();
                 $('#btn-loader').addClass('d-none')
@@ -310,7 +255,7 @@ Banner
         let data = new FormData($('#form-data')[0]);
         data.append('_method', 'PATCH');
         $.ajax({
-            url: `{{route('banner.update','id')}}`,
+            url: `{{route('game.update','id')}}`,
             type: 'POST',
             processData: false,
             contentType: false,
@@ -322,7 +267,7 @@ Banner
                 500: function(response) {
                     console.log(response)
                     Toastify({
-                        text: 'Banner edit unsuccessful',
+                        text: 'Game edit unsuccessful',
                         backgroundColor: '#d74d4d',
                     }).showToast();
                     $('#btn-loader').addClass('d-none')
@@ -333,7 +278,7 @@ Banner
                 console.log(data)
                 $("#form-data")[0].reset()
                 Toastify({
-                    text: 'Banner edit successful',
+                    text: 'Game edit successful',
                     backgroundColor: '#435ebe',
                 }).showToast();
                 $('#btn-loader').addClass('d-none')
@@ -350,7 +295,7 @@ Banner
         $('#btn-loader').removeClass('d-none')
         $('#btn-action').addClass('d-none')
         $.ajax({
-            url: `{{route('banner.destroy','id')}}`,
+            url: `{{route('game.destroy','id')}}`,
             type: "DELETE",
             dataType: "json",
             headers: {
@@ -363,7 +308,7 @@ Banner
                 500: function(response) {
                     console.log(response)
                     Toastify({
-                        text: 'Banner delete unsuccessful',
+                        text: 'Game delete unsuccessful',
                         backgroundColor: '#d74d4d',
                     }).showToast();
                     $('#btn-loader').addClass('d-none')
@@ -373,7 +318,7 @@ Banner
             success: function(data) {
                 $("#form-data")[0].reset()
                 Toastify({
-                    text: 'Banner delete successful',
+                    text: 'Game delete successful',
                     backgroundColor: '#435ebe',
                 }).showToast();
                 $('#btn-loader').addClass('d-none')

@@ -4,17 +4,17 @@
 @endsection
 
 @section('breadcumb')
-<li><a href="javascript:void(0);">Banner</a></li>
+<li><a href="javascript:void(0);">Squad</a></li>
 @endsection
 @section('title')
-Banner
+Squad
 @endsection
 @section('content')
 <div class="card">
     <div class="card-body">
         <h3 class="mb-3">
             @section('title_table')
-            Banner
+            Squad
             @endsection
         </h3>
         <button type="button" onclick="addModal()" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Add</button>
@@ -22,7 +22,8 @@ Banner
             <table id="data_table" class="table table-bordered table-striped table-hover js-basic-example dataTable">
                 <thead>
                     <tr>
-                        <th>Title</th>
+                        <th>Game</th>
+                        <th>Name</th>
                         <th>Image</th>
                         <th></th>
                     </tr>
@@ -50,10 +51,15 @@ Banner
             processing: true,
             serverSide: true,
             searching: true,
-            ajax: "{{ route('banner.index') }}",
-            columns: [{
+            ajax: "{{ route('Squad.index') }}",
+            columns: [
+                {
                     data: 'title',
                     name: 'title'
+                },
+                {
+                    data: 'name',
+                    name: 'name'
                 },
                 {
                     data: 'image',
@@ -108,17 +114,23 @@ Banner
     {
         let html = `<div class="modal-body">
                 <form id="form-data" enctype="multipart/form-data">
-                    <label for="title"> Title</label>
+                    <label for="name"> Name</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input type="text" name="title" class="form-control" placeholder="Title" autocomplete="off" required>
+                            <input type="text" name="name" class="form-control" placeholder="Name" autocomplete="off" required>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <div class="form-line">
-                            <input type="text" name="description" class="form-control" placeholder="Description" autocomplete="off" required>
-                        </div>
+                        <select class="choices form-select">
+                            <option value="square">Square</option>
+                            <option value="rectangle">Rectangle</option>
+                            <option value="rombo">Rombo</option>
+                            <option value="romboid">Romboid</option>
+                            <option value="trapeze">Trapeze</option>
+                            <option value="traible">Triangle</option>
+                            <option value="polygon">Polygon</option>
+                        </select>
                     </div>
 
                     <div class="form-group">
@@ -267,7 +279,7 @@ Banner
         $('#btn-action').addClass('d-none')
         let data = new FormData($('#form-data')[0]);
         $.ajax({
-            url: '{{route('banner.store')}}',
+            url: '{{route('Squad.store')}}',
             type: "POST",
             dataType: "json",
             cache: false,
@@ -281,7 +293,7 @@ Banner
                 500: function(response) {
                     console.log(response)
                     Toastify({
-                        text: 'Banner add unsuccessful',
+                        text: 'Squad add unsuccessful',
                         backgroundColor: '#d74d4d',
                     }).showToast();
                     $('#btn-loader').addClass('d-none')
@@ -291,7 +303,7 @@ Banner
             success: function(data) {
                 $("#form-data")[0].reset()
                 Toastify({
-                    text: 'Banner add successful',
+                    text: 'Squad add successful',
                     backgroundColor: '#435ebe',
                 }).showToast();
                 $('#btn-loader').addClass('d-none')
@@ -310,7 +322,7 @@ Banner
         let data = new FormData($('#form-data')[0]);
         data.append('_method', 'PATCH');
         $.ajax({
-            url: `{{route('banner.update','id')}}`,
+            url: `{{route('Squad.update','id')}}`,
             type: 'POST',
             processData: false,
             contentType: false,
@@ -322,7 +334,7 @@ Banner
                 500: function(response) {
                     console.log(response)
                     Toastify({
-                        text: 'Banner edit unsuccessful',
+                        text: 'Squad edit unsuccessful',
                         backgroundColor: '#d74d4d',
                     }).showToast();
                     $('#btn-loader').addClass('d-none')
@@ -333,7 +345,7 @@ Banner
                 console.log(data)
                 $("#form-data")[0].reset()
                 Toastify({
-                    text: 'Banner edit successful',
+                    text: 'Squad edit successful',
                     backgroundColor: '#435ebe',
                 }).showToast();
                 $('#btn-loader').addClass('d-none')
@@ -350,7 +362,7 @@ Banner
         $('#btn-loader').removeClass('d-none')
         $('#btn-action').addClass('d-none')
         $.ajax({
-            url: `{{route('banner.destroy','id')}}`,
+            url: `{{route('Squad.destroy','id')}}`,
             type: "DELETE",
             dataType: "json",
             headers: {
@@ -363,7 +375,7 @@ Banner
                 500: function(response) {
                     console.log(response)
                     Toastify({
-                        text: 'Banner delete unsuccessful',
+                        text: 'Squad delete unsuccessful',
                         backgroundColor: '#d74d4d',
                     }).showToast();
                     $('#btn-loader').addClass('d-none')
@@ -373,7 +385,7 @@ Banner
             success: function(data) {
                 $("#form-data")[0].reset()
                 Toastify({
-                    text: 'Banner delete successful',
+                    text: 'Squad delete successful',
                     backgroundColor: '#435ebe',
                 }).showToast();
                 $('#btn-loader').addClass('d-none')

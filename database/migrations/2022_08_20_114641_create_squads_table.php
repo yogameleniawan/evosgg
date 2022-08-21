@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('game_id');
             $table->string('name');
             $table->string('country');
+            $table->text('image');
             $table->foreign('game_id')->references('id')->on('games')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->timestamps();
         });
