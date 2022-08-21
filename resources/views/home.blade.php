@@ -435,6 +435,40 @@
                                     </svg>
                                     <div class="description">
                                         <div class="time-container">
+                                            <p class="date"> <span class="text-light-blue"></span>
+                                            </p>
+                                            <p>-</p>
+                                            <p class="time"></p>
+                                        </div>
+                                        <div class="progress-container">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                    <div class="team">
+                                        <p class="team-name"></p>
+                                        <div class="logos">
+                                            <img class="home-team"
+                                                src=""
+                                                alt="">
+                                            <p class="home-score"></p>
+                                            <p class="vs global-vs">VS</p>
+                                            <p class="away-score"></p>
+                                            <img class="away-team"
+                                                src=""
+                                                alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="result-card mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="8.456" height="200.468"
+                                        viewBox="0 0 8.456 200.468">
+                                        <path id="Path_37" data-name="Path 37"
+                                            d="M172.659,383.6l8.456,8.456H364.671l8.456-8.456Z"
+                                            transform="translate(-383.601 373.126) rotate(-90)" fill="#56c4f4"
+                                            opacity="0.297" />
+                                    </svg>
+                                    <div class="description">
+                                        <div class="time-container">
                                             <p class="date"> <span class="text-light-blue">18 APR</span>
                                                 2021
                                             </p>
